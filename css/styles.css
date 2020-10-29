@@ -22,9 +22,16 @@ header a {
     display: block;
 }
 
+.menu a:hover,
+.menu a:active {
+    background-color: gainsboro;
+    border-radius: 4px;
+}
+
 .toggle-btn {
     border: none;
     background-color: #fff;
+    outline: none;
 }
 
 .toggle-btn:hover {
@@ -41,15 +48,17 @@ svg rect {
     text-align: center;
 }
 
-/* Step 2: Now let's hide the menu. Once it's hidden this is the default load stage */
+/* Step 2: Now let's hide the menu. Once it's hidden this is the default load stage. If using display: none; - that property cannot be transitioned. */
 
 header nav {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
 }
 
 /* Step 3: Create a special class that will show the menu. This class name exists only in the CSS file for now. Next the javascript will add this class to the nav element for us. Let's go and do that in the main.js file */
 .show-nav {
-    display: unset;
+    max-height: 200px;
 }
 
 /* ************************* section ****************** */
@@ -70,4 +79,32 @@ section p {
 section h2 {
     color: #fff;
     font-size: 3.157rem;
+}
+
+/* Step 4: add a media query and show the nav by default (hide the toggle button) and style it as a horizontal nav */
+
+@media only screen and (min-width: 37.5em) {
+    .toggle-btn {
+        display: none;
+    }
+
+    /* we want to see the nav by default, so give it a height back */
+    header nav  {
+        max-height: 200px;
+        overflow: visible;
+    }
+
+    .menu,
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu li {
+        margin-left: 0.5rem;
+    }
+
+    .menu li a {
+        padding: 0 0.5rem;
+    }
 }
