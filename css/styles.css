@@ -2,3 +2,72 @@ body {
     background-color: #192f5e;
     font-family: sans-serif;
 }
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* *************** header & nav ****************** */
+/* Step: 1 Style the default/showing state. Starting with the mobile view, style the layout and links for how they will look when visible */
+header {
+    background-color: #fff;
+    padding: 2%;
+}
+
+header a {
+    color: #3f3f3f;
+    text-decoration: none;
+    /* allows the clickable area to take up the full width and height of the li */
+    display: block;
+}
+
+.toggle-btn {
+    border: none;
+    background-color: #fff;
+}
+
+.toggle-btn:hover {
+    cursor: pointer;
+}
+
+svg rect {
+    fill: #3f3f3f;
+}
+
+.menu li {
+    /* the extra space from the additional line height, makes this a larger area and vertically centers the text */
+    line-height: 40px;
+    text-align: center;
+}
+
+/* Step 2: Now let's hide the menu. Once it's hidden this is the default load stage */
+
+header nav {
+    display: none;
+}
+
+/* Step 3: Create a special class that will show the menu. This class name exists only in the CSS file for now. Next the javascript will add this class to the nav element for us. Let's go and do that in the main.js file */
+.show-nav {
+    display: unset;
+}
+
+/* ************************* section ****************** */
+section {
+    padding: 3.125rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+section p {
+    color: #d5e294;
+    border-bottom: 2px solid #d5e294;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 1.777rem;
+}
+
+section h2 {
+    color: #fff;
+    font-size: 3.157rem;
+}
